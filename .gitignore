@@ -1,0 +1,20 @@
+# Ignore everything unless it is manually overridden
+/*
+
+# Overrides:
+!.gitignore
+!.global_gitignore
+!.gitconfig
+
+!.config/
+.config/*
+
+!.config/tmux/
+
+!.bashrc
+
+!.config/lazygit/
+.config/lazygit/*
+!.config/lazygit/config.yml
+
+!.config/nvim
