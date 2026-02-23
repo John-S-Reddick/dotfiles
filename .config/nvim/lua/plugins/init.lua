@@ -15,17 +15,17 @@ return {
   {
     "ThePrimeagen/harpoon",
      dependencies = { "nvim-lua/plenary.nvim" }
-  }
-  -- test new blink
-  -- { import = "nvchad.blink.lazyspec" },
+  },
+   -- test new blink
+   { import = "nvchad.blink.lazyspec" },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+   {
+   	"nvim-treesitter/nvim-treesitter",
+   	opts = {
+   		ensure_installed = {
+   			"vim", "lua", "vimdoc",
+        "html", "css"
+   		},
+   	},
+   },
 }
