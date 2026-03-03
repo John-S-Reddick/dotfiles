@@ -12,6 +12,20 @@ return {
       require "configs.lspconfig"
     end,
   },
+  { "akinsho/toggleterm.nvim", opts = {}, cmd = { "ToggleTerm", "TermExec" } },
+  { "cshuaimin/ssr.nvim", lazy = true },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = "LazyGit",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("telescope").load_extension "lazygit"
+    end,
+  },
+
   {
     "ThePrimeagen/harpoon",
      dependencies = { "nvim-lua/plenary.nvim" }

@@ -1,18 +1,25 @@
 # .bashrc
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
+PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
+
+#Aliases
+alias bashrc='nvim ~/.bashrc'
+alias cdnvim='cd ~/.config/nvim/lua'
+alias nvmappings='nvim ~/.config/nvim/lua/mappings.lua'
+alias ZZ='exit'
+alias q='exit'
+
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
@@ -23,3 +30,4 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
+fastfetch
