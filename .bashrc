@@ -8,6 +8,7 @@ fi
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export PATH
 
+
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -20,6 +21,7 @@ alias q='exit'
 
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
+export PATH=/usr/local/texlive/2026/bin/x86_64-linux/:$PATH
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
