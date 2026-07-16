@@ -71,6 +71,10 @@ local function exec_code_run(termargs)
         local current_file = vim.fn.expand "%:p"
         local relative_path = vim.fn.fnamemodify(current_file, ":.:.")
         vim.cmd('TermExec cmd="go run ' .. relative_path .. '" ' .. termargs)
+      elseif current_ft == "tex" then
+        local current_file = vim.fn.expand "%:p"
+        local relative_path = vim.fn.fnamemodify(current_file, ":.:.")
+        vim.cmd('silent ! pdflatex ' .. relative_path)
       else
         vim.print "Saved. No run configs supported for the current directory or filetype."
       end

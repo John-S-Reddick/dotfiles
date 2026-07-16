@@ -19,10 +19,19 @@ alias bashrc='nvim ~/.bashrc'
 alias ZZ='exit'
 alias q='exit'
 alias cls='clear'
+alias a='clear && fastfetch'
+alias l='colorls --sd' // ls -a equivelent
+alias v='nvim'
+alias f='open .' // opens current folder in explorer
+alias t='tmux'
+alias c='clear'
+alias e='exit'
+alias j='if [ -f package.json ]; then nvim package.json; else if [ -f ../package.json ]; then nvim ../package.json; else if [ -f ../../package.json ]; then nvim ../../package.json; else if [ -f ../../../package.json ]; then nvim ../../../package.json; else if [ -f ../../../../package.json ]; then nvim ../../../../package.json; else echo "No package.json found"; fi; fi; fi; fi; fi' // nvim open package.json file in current project
 
 # Alias Directories
 alias cdnvim='cd ~/.config/nvim/lua'
 alias cdaoc='cd ~/Documents/advent-of-code-2025' # !! Get rid of 2026
+alias cdwriting='cd ~/Documents/writing'
 
 # Alias Files
 alias nvmappings='nvim ~/.config/nvim/lua/mappings.lua'
