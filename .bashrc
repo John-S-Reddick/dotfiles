@@ -53,5 +53,45 @@ if [ -d ~/.bashrc.d ]; then
         fi
     done
 fi
+
+# Create and manage Latex stuff
+edit() {
+    local base="${1%.*}"          # strip any extension the user typed
+    local tex="${base}.tex"
+    local pdf="${base}.pdf"
+
+    if [[ ! -f "$tex" ]]; then
+        echo "No such file: $tex — creating it"
+        cat > "$tex" <<'EOF'
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{}
+\author{John Reddick}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\end{document}
+EOF
+        # Compile it so the PDF exists too
+        pdflatex -interaction=nonstopmode -output-directory="$(dirname "$tex")" "$tex" >/dev/null 2>&1
+        if [[ ! -f "$pdf" ]]; then
+            echo "Warning: failed to generate $pdf from new $tex"
+        fi
+    fi
+
+    # Open the PDF in the background (adjust viewer for your OS)
+    if [[ -f "$pdf" ]]; then
+        xdg-open "$pdf" >/dev/null 2>&1 &
+        disown
+    else
+        echo "Warning: $pdf not found"
+    fi
+
+    # Open the tex file in nvim (foreground)
+    nvim "$tex"
+}
 unset rc
 fastfetch
