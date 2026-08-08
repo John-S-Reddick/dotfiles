@@ -30,7 +30,7 @@ alias e='exit'
 # Alias Directories
 alias cdnvim='cd ~/.config/nvim/lua'
 alias cdaoc='cd ~/Documents/advent-of-code-2025' # !! Get rid of 2026
-alias cdwriting='cd ~/Documents/writing'
+alias cdwriting='cd ~/Documents/writing; git pull'
 
 # Alias Files
 alias nvmappings='nvim ~/.config/nvim/lua/mappings.lua'
@@ -44,6 +44,8 @@ alias nvplugins='nvim ~/.config/nvim/lua/plugins/init.lua'
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export PATH=/usr/local/texlive/2026/bin/x86_64-linux/:$PATH
+
+git pull
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
