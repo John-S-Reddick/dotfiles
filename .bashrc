@@ -45,8 +45,6 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export PATH=/usr/local/texlive/2026/bin/x86_64-linux/:$PATH
 
-git pull
-
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
@@ -97,3 +95,4 @@ EOF
 }
 unset rc
 fastfetch
+git pull
