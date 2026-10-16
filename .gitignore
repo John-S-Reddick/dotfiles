@@ -18,3 +18,11 @@
 !.config/lazygit/config.yml
 
 !.config/nvim
+
+!.bashrc.d/
+
+!Documents/
+Documents/*
+!Documents/claude/
+Documents/claude/*
+!Documents/claude/.devcontainer/

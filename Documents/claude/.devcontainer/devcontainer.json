@@ -1,0 +1,40 @@
+// Based on https://github.com/anthropics/claude-code/tree/main/.devcontainer
+// Adapted for rootless Podman with SELinux enforcing (Bazzite / Fedora Atomic).
+{
+  "name": "Claude Code Sandbox",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "TZ": "${localEnv:TZ:America/New_York}",
+      "CLAUDE_CODE_VERSION": "latest",
+      "GIT_DELTA_VERSION": "0.18.2",
+      "ZSH_IN_DOCKER_VERSION": "1.2.0"
+    }
+  },
+  "runArgs": [
+    // Map host user (uid 1000) to the container's node user (uid 1000) so the
+    // bind-mounted workspace is writable from both sides.
+    "--userns=keep-id",
+    // Needed by init-firewall.sh; scoped to the container's own network namespace.
+    "--cap-add=NET_ADMIN",
+    "--cap-add=NET_RAW"
+  ],
+  // keep-id already lines up the UIDs; the CLI's own remapping breaks with it.
+  "updateRemoteUserUID": false,
+  "remoteUser": "node",
+  "mounts": [
+    "source=claude-code-bashhistory-${devcontainerId},target=/commandhistory,type=volume",
+    "source=claude-code-config-${devcontainerId},target=/home/node/.claude,type=volume"
+  ],
+  "containerEnv": {
+    "NODE_OPTIONS": "--max-old-space-size=4096",
+    "CLAUDE_CONFIG_DIR": "/home/node/.claude",
+    "POWERLEVEL9K_DISABLE_GITSTATUS": "true"
+  },
+  // relabel=shared is Podman's equivalent of :z, so SELinux lets the container
+  // use the folder while your host Neovim keeps normal access.
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,relabel=shared",
+  "workspaceFolder": "/workspace",
+  "postStartCommand": "sudo /usr/local/bin/init-firewall.sh",
+  "waitFor": "postStartCommand"
+}
