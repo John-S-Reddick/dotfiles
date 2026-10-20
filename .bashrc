@@ -94,5 +94,9 @@ EOF
     nvim "$tex"
 }
 unset rc
-fastfetch
-git pull
+
+# Only run in interactive shells (skip scripts, Claude Code, etc.)
+if [[ $- == *i* ]]; then
+    fastfetch
+    git pull
+fi
