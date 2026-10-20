@@ -31,6 +31,7 @@ alias e='exit'
 alias cdnvim='cd ~/.config/nvim/lua'
 alias cdaoc='cd ~/Documents/advent-of-code-2025' # !! Get rid of 2026
 alias cdwriting='cd ~/Documents/writing; git pull'
+alias cdclaude='cd ~/Documents/claude && claude'
 
 # Alias Files
 alias nvmappings='nvim ~/.config/nvim/lua/mappings.lua'
