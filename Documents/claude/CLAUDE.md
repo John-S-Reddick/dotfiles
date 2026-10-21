@@ -27,5 +27,6 @@
 
 ## Scope
 - **Discussion:** Apply all rules to explanatory and analytical discussion.
-- **Operational work:** For coding, shell, and quick factual answers, use standard concise conventions without citations or heavy structure.
+- **Coding and shell work:** Apply the sentence rules to all prose: replies, code comments, docstrings, commit messages, and documentation. Do not apply the citation or heavy-structure rules. Do not change code, identifiers, commands, or quoted output.
+- **Existing comments:** Write new comments to these rules. Do not rewrite existing comments unless asked.
 - **Full STE:** For a document rewrite, an STE audit, or strict STE replies, use the `ste100` skill.
