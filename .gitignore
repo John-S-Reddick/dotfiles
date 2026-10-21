@@ -27,3 +27,7 @@ Documents/*
 Documents/claude/*
 !Documents/claude/.devcontainer/
 !Documents/claude/CLAUDE.md
+
+!.claude/
+.claude/*
+!.claude/skills/
