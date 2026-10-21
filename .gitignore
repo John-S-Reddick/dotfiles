@@ -31,3 +31,4 @@ Documents/claude/*
 !.claude/
 .claude/*
 !.claude/skills/
+.claude/skills/synced/
