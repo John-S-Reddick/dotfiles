@@ -20,15 +20,3 @@
 !.config/nvim
 
 !.bashrc.d/
-
-!Documents/
-Documents/*
-!Documents/claude/
-Documents/claude/*
-!Documents/claude/.devcontainer/
-!Documents/claude/CLAUDE.md
-
-!.claude/
-.claude/*
-!.claude/skills/
-.claude/skills/synced/
